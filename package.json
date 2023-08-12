@@ -11,7 +11,15 @@
     "lint-ts": "ng lint",
     "lint-ts-fix": "ng lint --fix",
     "lint-scss": "stylelint **/*.scss",
-    "lint-scss-fix": "stylelint **/*.scss --fix"
+    "lint-scss-fix": "stylelint **/*.scss --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "src/**/*.scss": "npm run lint-scss",
+    "src/**/*.{ts,scss,html}": [
+      "npm run lint-ts",
+      "prettier --write"
+    ]
   },
   "private": true,
   "dependencies": {
