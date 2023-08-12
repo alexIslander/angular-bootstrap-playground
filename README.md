@@ -1,4 +1,6 @@
 # AngularBootstrapPlayground
+## GitHub Action Badge [![CI](https://github.com/alexIslander/angular-bootstrap-playground/actions/workflows/ci.yml/badge.svg)](https://github.com/alexIslander/angular-bootstrap-playground/actions/workflows/ci.yml)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
