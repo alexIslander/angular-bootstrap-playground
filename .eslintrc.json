@@ -1,6 +1,6 @@
 {
     "root": true,
-    "ignorePatterns": ["projects/**/*"],
+    "ignorePatterns": ["projects/**/*", "*inline-template-*.component.html", "src/app/app.component.html", "src/index.html"],
     "overrides": [
         {
             "files": ["*.ts"],
@@ -33,7 +33,6 @@
         },
         {
             "files": ["*.html"],
-            "excludedFiles": ["*inline-template-*.component.html"],
             "extends": ["plugin:prettier/recommended"],
             "rules": {
                 "prettier/prettier": ["error", { "parser": "angular" }]
