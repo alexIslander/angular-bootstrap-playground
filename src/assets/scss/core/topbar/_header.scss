@@ -1,0 +1,136 @@
+/*******************
+ General Topbar
+*******************/
+
+.topbar {
+  position: relative;
+  z-index: 100;
+  transition: $transitions;
+  box-shadow: 1px 0 7px rgb(0 0 0 / 5%);
+  background: $topbar;
+  height: $topbar-height;
+}
+
+.topbar .navbar-collapse {
+  padding: 0 10px 0 0;
+}
+
+.topbar .top-navbar {
+  min-height: $topbar-height;
+  padding: 0;
+}
+
+.topbar .top-navbar .navbar-header {
+  line-height: $topbar-navlink-height;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: $topbar-navbrand-padding;
+}
+
+.topbar .top-navbar .navbar-header .navbar-brand .logo-icon {
+  margin-right: 5px;
+}
+
+.topbar .top-navbar .navbar-nav > .nav-item > .nav-link {
+  padding: $topbar-navlink-padding;
+  font-size: $topbar-navlink-font-size;
+  line-height: $topbar-navlink-height;
+  height: $topbar-navlink-height;
+}
+
+.topbar .top-navbar .navbar-nav > .nav-item {
+  transition: 0.2s ease-in;
+}
+
+.topbar .top-navbar .navbar-nav > .nav-item:hover {
+  background: $transparent-dark-bg;
+}
+
+.topbar .nav-toggler,
+.topbar .topbartoggler {
+  color: $theme-light;
+  padding: 0 15px;
+}
+
+/*******************
+Designed dropdown
+******************/
+.topbar .dropdown-menu {
+    padding-top: 0;
+    border: 0;
+    box-shadow: 1px 1px 15px rgb(0 0 0 / 10%);
+  }
+
+/*******************
+Topbar Responsive
+******************/
+/* stylelint-disable declaration-no-important */
+@media (width <= 991px) {
+  .topbar .top-navbar {
+    .navbar-collapse.show,
+    .navbar-collapse.collapsing {
+      display: block;
+      width: 100%;
+      border-top: 1px solid $border-color;
+      position: fixed;
+    }
+
+    .navbar-nav {
+      flex-direction: row;
+
+      .dropdown {
+        position: relative;
+      }
+    }
+
+    .navbar-nav > .nav-item > .nav-link {
+      padding: 0 10px;
+    }
+
+    .navbar-header {
+      display: flex;
+      align-items: center;
+      width: 100% !important;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (width <= 767px) {
+  .topbar .top-navbar {
+    .navbar-nav {
+      flex-direction: row;
+
+      .dropdown {
+        position: static;
+      }
+    }
+
+    .dropdown-menu {
+      position: absolute;
+      width: 100%;
+      left: 0 !important;
+      transform: translate(0, 64px) !important;
+
+      .with-arrow {
+        display: none;
+      }
+    }
+  }
+}
+
+
+@media (width <= 991px) {
+  .topbar .navbar-collapse {
+    position: relative;
+    top: 64px;
+  }
+
+  .topbar .top-navbar .navbar-header {
+    position: fixed;
+  }
+}

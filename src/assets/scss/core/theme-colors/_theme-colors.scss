@@ -1,0 +1,54 @@
+/* Theme colors */
+
+/* Main Wrapper */
+
+/* Sidebar */
+#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link {
+  color: $sidebar-text-dark;
+}
+
+#main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item .sidebar-link i {
+  color: $sidebar-icons-dark;
+}
+
+#main-wrapper[data-layout=vertical] {
+  /* This is for the logo bg */
+  .topbar .top-navbar .navbar-header[data-logobg=skin6] {
+    background: $skin6;
+  }
+
+  #main-wrapper[data-layout=vertical] .topbar .top-navbar .navbar-header[data-logobg=skin6] .navbar-brand .dark-logo {
+    display: inline;
+  }
+
+  #main-wrapper[data-layout=vertical] .topbar .top-navbar .navbar-header[data-logobg=skin6] .navbar-brand .light-logo {
+    display: none;
+  }
+
+  #main-wrapper[data-layout=vertical] .topbar .top-navbar .navbar-header[data-logobg=skin6] .nav-toggler,
+  #main-wrapper[data-layout=vertical] .topbar .top-navbar .navbar-header[data-logobg=skin6] .topbartoggler {
+    color: $body-color;
+  }
+
+  /* This is for the sidebar bg */
+  #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] {
+    background: $skin6;
+  }
+
+  #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul {
+    background: $skin6;
+  }
+
+  #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item.active > .sidebar-link {
+    color: $white;
+  }
+
+  #main-wrapper[data-layout=vertical] .left-sidebar[data-sidebarbg=skin6] .sidebar-nav ul .sidebar-item.active > .sidebar-link i {
+    color: $white;
+  }
+}
+
+#main-wrapper[data-layout=vertical] .topbar .navbar-collapse,
+#main-wrapper[data-layout=vertical] .topbar[data-navbarbg=skin1] {
+  background: $skin1;
+}
