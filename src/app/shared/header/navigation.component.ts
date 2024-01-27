@@ -1,8 +1,6 @@
 import { Component, AfterViewInit, EventEmitter, Output } from '@angular/core';
 import { NgbDropdownModule, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-declare let $: any;
-
 @Component({
   selector: 'app-navigation',
   standalone: true,
@@ -17,7 +15,7 @@ export class NavigationComponent implements AfterViewInit {
   constructor(private modalService: NgbModal) {}
 
   // This is for Notifications
-  notifications: Object[] = [
+  notifications = [
     {
       btn: 'btn-danger',
       icon: 'ti-link',
@@ -49,7 +47,7 @@ export class NavigationComponent implements AfterViewInit {
   ];
 
   // This is for Mymessages
-  mymessages: Object[] = [
+  mymessages = [
     {
       useravatar: 'assets/images/users/user1.jpg',
       status: 'online',
@@ -80,14 +78,14 @@ export class NavigationComponent implements AfterViewInit {
     }
   ];
 
-  public selectedLanguage: any = {
+  public selectedLanguage = {
     language: 'English',
     code: 'en',
     type: 'US',
     icon: 'us'
   };
 
-  public languages: any[] = [
+  public languages = [
     {
       language: 'English',
       code: 'en',
@@ -111,5 +109,6 @@ export class NavigationComponent implements AfterViewInit {
     }
   ];
 
+  // eslint-disable-next-line @angular-eslint/no-empty-lifecycle-method
   ngAfterViewInit() {}
 }

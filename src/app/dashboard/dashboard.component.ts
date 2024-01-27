@@ -1,14 +1,11 @@
-import { Component, AfterViewInit } from '@angular/core';
-//declare var require: any;
+import { Component } from '@angular/core';
 
 @Component({
   templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent implements AfterViewInit {
+export class DashboardComponent {
   subtitle: string;
   constructor() {
     this.subtitle = 'This is some text within a card block.';
   }
-
-  ngAfterViewInit() { }
 }

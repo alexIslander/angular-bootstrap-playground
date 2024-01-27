@@ -72,6 +72,14 @@ sidebar navigation
     
     li {
       list-style: none;
+
+      &:first-child {
+        margin-top: 2px;
+      }
+
+      ul {
+        margin-left: 40px; // Add indentation for second-level menu items
+      }
     }
   }
 }

@@ -1,6 +1,6 @@
 {
     "root": true,
-    "ignorePatterns": ["projects/**/*", "*inline-template-*.component.html", "src/app/app.component.html", "src/index.html"],
+    "ignorePatterns": ["projects/**/*", "*inline-template-*.component.html", "*.html"],
     "overrides": [
         {
             "files": ["*.ts"],

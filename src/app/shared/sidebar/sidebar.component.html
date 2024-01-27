@@ -1,6 +1,6 @@
 <nav class="sidebar-nav">
     <ul id="sidebarnav" class="p-3">
-        <!-- First level menu -->
+        <!-- Add ngClass directive to toggle active class for collapsible menu items -->
         <li class="sidebar-item" [class.active]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems"
             [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
             <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true">{{sidebarnavItem.title}}</div>
@@ -9,7 +9,23 @@
                 [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
                 <i [ngClass]="[sidebarnavItem.icon]"></i>
                 <span class="hide-menu">{{sidebarnavItem.title}}</span>
+                <i *ngIf="sidebarnavItem.submenu && sidebarnavItem.submenu.length > 0" [ngClass]="{
+                'bi bi-chevron-down': showMenu !== sidebarnavItem.title,
+                'bi bi-chevron-right': showMenu === sidebarnavItem.title
+                }"></i>
             </a>
+
+            <!-- Second level menu (subitems) -->
+            <ul class="sidebar-submenu" *ngIf="showMenu === sidebarnavItem.title">
+                <li class="sidebar-item" *ngFor="let submenuItem of sidebarnavItem.submenu"
+                [routerLinkActive]="submenuItem.submenu.length !== 0 ? '' : 'active'">
+                <a class="sidebar-link" [routerLink]="submenuItem.class === '' ? [submenuItem.path] : null"
+                    [ngClass]="[submenuItem.class]" [routerLinkActive]="submenuItem.submenu.length !== 0 ? '' : 'active'">
+                    <i [ngClass]="[submenuItem.icon]"></i>
+                    <span class="hide-menu">{{submenuItem.title}}</span>
+                </a>
+                </li>
+            </ul>
         </li>
     </ul>
 </nav>

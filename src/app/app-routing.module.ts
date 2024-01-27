@@ -10,17 +10,16 @@ export const Approutes: Routes = [
       { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
       {
         path: 'dashboard',
-        loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
+        loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
       },
       {
         path: 'about',
         loadChildren: () => import('./about/about.module').then((m) => m.AboutModule)
+      },
+      {
+        path: 'component',
+        loadChildren: () => import('./component/component.module').then((m) => m.ComponentsModule)
       }
-      // ,
-      //   {
-      //     path: 'component',
-      //     loadChildren: () => import('./component/component.module').then(m => m.ComponentsModule)
-      //   }
     ]
   },
   {
