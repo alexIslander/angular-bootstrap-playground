@@ -11,6 +11,31 @@ import { TableComponent } from './table/table.component';
 import { ModalComponent } from './modal/modal.component';
 import { OffCanvasComponent } from './off-canvas/off-canvas.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
+import { PopoversComponent } from './popovers/popovers.component';
+
+export const IndicatorComponentsRoutes: Routes = [
+  {
+    path: 'indicators',
+    children: [
+      {
+        path: 'badges',
+        component: BadgeComponent
+      },
+      {
+        path: 'alert',
+        component: NgbdAlertBasicComponent
+      },
+      {
+        path: 'placeholder',
+        component: PlaceholderComponent
+      },
+      {
+        path: 'popovers',
+        component: PopoversComponent
+      }
+    ]
+  }
+];
 
 export const ComponentsRoutes: Routes = [
   {
@@ -29,14 +54,6 @@ export const ComponentsRoutes: Routes = [
         component: NgbdpaginationBasicComponent
       },
       {
-        path: 'badges',
-        component: BadgeComponent
-      },
-      {
-        path: 'alert',
-        component: NgbdAlertBasicComponent
-      },
-      {
         path: 'dropdown',
         component: NgbdDropdownBasicComponent
       },
@@ -51,10 +68,6 @@ export const ComponentsRoutes: Routes = [
       {
         path: 'off-canvas',
         component: OffCanvasComponent
-      },
-      {
-        path: 'placeholder',
-        component: PlaceholderComponent
       },
       {
         path: 'buttons',

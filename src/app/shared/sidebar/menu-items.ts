@@ -17,22 +17,6 @@ export const ROUTES: RouteInfo[] = [
     extralink: false,
     submenu: [
       {
-        path: '/component/alert',
-        title: 'Alert',
-        icon: 'bi bi-bell',
-        class: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/component/badges',
-        title: 'Badges',
-        icon: 'bi bi-patch-check',
-        class: '',
-        extralink: false,
-        submenu: []
-      },
-      {
         path: '/component/buttons',
         title: 'Button',
         icon: 'bi bi-hdd-stack',
@@ -83,14 +67,6 @@ export const ROUTES: RouteInfo[] = [
       {
         path: '/component/off-canvas',
         title: 'OffCanvas',
-        icon: 'bi bi-app-indicator',
-        class: '',
-        extralink: false,
-        submenu: []
-      },
-      {
-        path: '/component/placeholder',
-        title: 'Placeholder',
         icon: 'bi bi-layout-sidebar-inset',
         class: '',
         extralink: false,
@@ -100,6 +76,47 @@ export const ROUTES: RouteInfo[] = [
         path: '/component/table',
         title: 'Table',
         icon: 'bi bi-layout-split',
+        class: '',
+        extralink: false,
+        submenu: []
+      }
+    ]
+  },
+  {
+    path: '/component/indicators',
+    title: 'Indicators',
+    icon: 'bi bi-app-indicator',
+    class: '',
+    extralink: false,
+    submenu: [
+      {
+        path: '/component/indicators/alert',
+        title: 'Alert',
+        icon: 'bi bi-bell',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/component/indicators/badges',
+        title: 'Badges',
+        icon: 'bi bi-patch-check',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/component/indicators/placeholder',
+        title: 'Placeholder',
+        icon: 'bi bi-text-paragraph',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
+        path: '/component/indicators/popovers',
+        title: 'Popovers',
+        icon: 'bi bi-box-arrow-in-right',
         class: '',
         extralink: false,
         submenu: []
