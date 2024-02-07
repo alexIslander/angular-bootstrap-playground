@@ -12,6 +12,7 @@ import { ModalComponent } from './modal/modal.component';
 import { OffCanvasComponent } from './off-canvas/off-canvas.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { PopoversComponent } from './popovers/popovers.component';
+import { SpinnersComponent } from './spinners/spinners.component';
 
 export const IndicatorComponentsRoutes: Routes = [
   {
@@ -24,6 +25,10 @@ export const IndicatorComponentsRoutes: Routes = [
       {
         path: 'alert',
         component: NgbdAlertBasicComponent
+      },
+      {
+        path: 'spinners',
+        component: SpinnersComponent
       },
       {
         path: 'placeholder',

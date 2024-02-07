@@ -26,7 +26,6 @@
                         "assets": ["src/favicon.ico", "src/assets"],
                         "styles": ["src/assets/scss/style.scss", "src/styles.scss"],
                         "scripts": [
-                            "node_modules/popper.js/dist/umd/popper.min.js",
                             "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"]
                     },
                     "configurations": {

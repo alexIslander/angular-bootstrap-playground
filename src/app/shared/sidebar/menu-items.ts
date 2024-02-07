@@ -106,6 +106,14 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       },
       {
+        path: '/component/indicators/spinners',
+        title: 'Spinners',
+        icon: 'bi bi-arrow-clockwise',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
         path: '/component/indicators/placeholder',
         title: 'Placeholder',
         icon: 'bi bi-text-paragraph',
