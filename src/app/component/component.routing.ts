@@ -10,6 +10,7 @@ import { CardsComponent } from './card/card.component';
 import { TableComponent } from './table/table.component';
 import { ModalComponent } from './modal/modal.component';
 import { OffCanvasComponent } from './off-canvas/off-canvas.component';
+import { PlaceholderComponent } from './placeholder/placeholder.component';
 
 export const ComponentsRoutes: Routes = [
   {
@@ -50,6 +51,10 @@ export const ComponentsRoutes: Routes = [
       {
         path: 'off-canvas',
         component: OffCanvasComponent
+      },
+      {
+        path: 'placeholder',
+        component: PlaceholderComponent
       },
       {
         path: 'buttons',

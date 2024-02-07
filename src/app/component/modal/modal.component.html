@@ -2,12 +2,12 @@
 <p>Toggle a working modal demo by clicking the button below. It will slide down and fade in from the top of the page.
 </p>
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<button type="button" (click)="trigger()" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
     Launch demo modal
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" #exampleModal id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -18,7 +18,7 @@
                 ...
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="trigger()">Close</button>
                 <button type="button" class="btn btn-primary">Save changes</button>
             </div>
         </div>
@@ -174,7 +174,7 @@
 </div>    
 <br><br>
 <p>Toggle between multiple modals with some clever placement of the data-bs-target and data-bs-toggle attributes. For example, you could toggle a password reset modal from within an already open sign in modal. Please note multiple modals cannot be open at the same time—this method simply toggles between two separate modals.</p>
-<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+<div class="modal fade" #exampleModalToggle id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -185,12 +185,12 @@
           Show a second modal and hide this one with the button below.
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+          <button class="btn btn-primary" (click)="openSecondToggleModal()" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
+  <div class="modal fade" #exampleModalToggle2 id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header">
@@ -201,10 +201,10 @@
           Hide this modal and show the first with the button below.
         </div>
         <div class="modal-footer">
-          <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+          <button class="btn btn-primary" (click)="closeSecondToggleModal()" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
         </div>
       </div>
     </div>
   </div>
-  <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
+  <button class="btn btn-primary" (click)="openFirstToggleModal()" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
   <br><br>

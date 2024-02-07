@@ -1,0 +1,25 @@
+.bd-example {
+    --bd-example-padding: 1rem;
+    --bs-border-color: #dee2e6;
+
+    position: relative;
+    padding: var(--bd-example-padding);
+    margin: 0 -1.5rem 1rem;
+    border: solid var(--bs-border-color);
+    border-width: 1px 0
+}
+
+.bd-example::after {
+    display: block;
+    clear: both;
+    content: ""
+}
+
+.bd-example-placeholder-cards::after {
+    display: none
+}
+
+.bd-example-placeholder-cards .card {
+    width: 18rem;
+    border: 1px solid  #dee2e6;
+}

@@ -89,6 +89,14 @@ export const ROUTES: RouteInfo[] = [
         submenu: []
       },
       {
+        path: '/component/placeholder',
+        title: 'Placeholder',
+        icon: 'bi bi-layout-sidebar-inset',
+        class: '',
+        extralink: false,
+        submenu: []
+      },
+      {
         path: '/component/table',
         title: 'Table',
         icon: 'bi bi-layout-split',
