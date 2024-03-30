@@ -136,6 +136,14 @@ export const ROUTES: RouteInfo[] = [
         class: '',
         extralink: false,
         submenu: []
+      },
+      {
+        path: '/component/indicators/toast',
+        title: 'Toast',
+        icon: 'bi bi-bell',
+        class: '',
+        extralink: false,
+        submenu: []
       }
     ]
   },

@@ -14,6 +14,7 @@ import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { PopoversComponent } from './popovers/popovers.component';
 import { SpinnersComponent } from './spinners/spinners.component';
 import { ProgressbarComponent } from './progressbar/progressbar.component';
+import { ToastComponent } from './toast/toast.component';
 
 export const IndicatorComponentsRoutes: Routes = [
   {
@@ -42,6 +43,10 @@ export const IndicatorComponentsRoutes: Routes = [
       {
         path: 'progressbar',
         component: ProgressbarComponent
+      },
+      {
+        path: 'toast',
+        component: ToastComponent
       }
     ]
   }

@@ -1,0 +1,30 @@
+.default-toast {
+    background-color: #92979c; /* Blue */
+}
+
+.info-toast {
+    background-color: #007bff; /* Teal */
+}
+
+.success-toast {
+    background-color: #06d79c; /* Green */
+}
+
+.warning-toast {
+    background-color: #ffc107; /* Yellow */
+}
+
+.error-toast {
+    background-color: #dc3545; /* Red */
+}
+
+.toast-body {
+    color: #fff;
+}
+
+.bottom-left-toast {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1050; /* Adjust as needed */
+}
