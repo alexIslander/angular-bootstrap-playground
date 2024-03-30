@@ -128,6 +128,14 @@ export const ROUTES: RouteInfo[] = [
         class: '',
         extralink: false,
         submenu: []
+      },
+      {
+        path: '/component/indicators/progressbar',
+        title: 'Progressbar',
+        icon: 'bi bi-hdd-stack',
+        class: '',
+        extralink: false,
+        submenu: []
       }
     ]
   },

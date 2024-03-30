@@ -13,6 +13,7 @@ import { OffCanvasComponent } from './off-canvas/off-canvas.component';
 import { PlaceholderComponent } from './placeholder/placeholder.component';
 import { PopoversComponent } from './popovers/popovers.component';
 import { SpinnersComponent } from './spinners/spinners.component';
+import { ProgressbarComponent } from './progressbar/progressbar.component';
 
 export const IndicatorComponentsRoutes: Routes = [
   {
@@ -37,6 +38,10 @@ export const IndicatorComponentsRoutes: Routes = [
       {
         path: 'popovers',
         component: PopoversComponent
+      },
+      {
+        path: 'progressbar',
+        component: ProgressbarComponent
       }
     ]
   }
