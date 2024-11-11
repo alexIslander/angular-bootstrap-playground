@@ -1,0 +1,47 @@
+name: Deploy
+
+on:
+  workflow_call:
+    inputs:
+      cf_pages_project:
+        description: 'The name of the Cloudflare Pages Project'
+        required: true
+        type: string
+    secrets:
+      api_token:
+        description: 'The Cloudflare API Token'
+        required: true
+      account_id:
+        description: 'The Cloudflare Account to deploy against'
+        required: true
+jobs:
+  deploy-feature:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with: 
+          node-version: ${{ matrix.node-version }}
+  
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} 
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build -- --configuration production
+
+      - name: Deploy
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.api_token }}
+          accountId: ${{ secrets.account_id }}
+          command: pages deploy dist/apps/angular-bootstrap-playground/browser --project-name=${{ inputs.cf_pages_project }}"

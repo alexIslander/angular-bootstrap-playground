@@ -1,0 +1,61 @@
+name: Deploy Feature
+
+on:
+  workflow_call:
+    inputs:
+      cf_pages_project:
+        description: 'The name of the Cloudflare Pages Project'
+        required: true
+        type: string
+    secrets:
+      api_token:
+        description: 'The Cloudflare API Token'
+        required: true
+      account_id:
+        description: 'The Cloudflare Account to deploy against'
+        required: true
+jobs:
+  deploy-feature:
+    runs-on: ubuntu-latest
+    strategy:
+          matrix:
+            node-version: [18.x]
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with: 
+          node-version: ${{ matrix.node-version }}
+  
+      - uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }} 
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build -- --configuration production
+
+      - name: Get last commit details
+        run: |
+          BRANCH_REF=${{ github.event.pull_request.head.ref }}
+          git fetch origin $BRANCH_REF
+          echo "commit_message=$(git log -1 FETCH_HEAD --pretty=format:%B)" >> $GITHUB_ENV
+          echo "commit_hash=$(git log -1 FETCH_HEAD --pretty=format:%H)" >> $GITHUB_ENV
+
+      - name: Deploy
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.api_token }}
+          accountId: ${{ secrets.account_id }}
+          command: pages deploy dist/apps/angular-bootstrap-playground/browser --project-name=${{ inputs.cf_pages_project }} --branch ${{ github.head_ref || github.ref_name }} --commit-message "${{ env.commit_message }}" --commit-hash "${{ env.commit_hash }}"
+
+      - name: Add Deployment Link
+        uses: thollander/actions-comment-pull-request@e2c37e53a7d2227b61585343765f73a9ca57eda9 # v3
+        with:
+          comment-tag: feature-deployment-ipp-portal
+          message: |
+            :rocket: **IPP Portal** Deployment succeeded, accessible via [${{ steps.deploy.outputs.deployment-url }}](${{ steps.deploy.outputs.deployment-url }})

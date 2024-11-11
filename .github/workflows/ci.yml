@@ -46,3 +46,23 @@ jobs:
     
     - name: Build
       run: npm run build -- --configuration production
+
+  deploy-feature:
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: [ build ]
+    uses: ./.github/workflows/common_deploy_feature.yaml
+    with:
+      cf_pages_project: isl-ui-dev
+    secrets:
+      api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+
+  deploy:
+    if: ${{ github.event_name == 'push' }}
+    needs: [ build ]
+    uses: ./.github/workflows/common_deploy.yaml
+    with:
+      cf_pages_project: isl-ui-dev
+    secrets:
+      api_token: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      account_id: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
