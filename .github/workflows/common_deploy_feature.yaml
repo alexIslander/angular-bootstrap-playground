@@ -21,7 +21,7 @@ jobs:
           matrix:
             node-version: [18.x]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - uses: actions/setup-node@v3
         with: 
@@ -37,6 +37,9 @@ jobs:
 
       - name: Build
         run: npm run build -- --configuration production
+        
+      - name: Install Wrangler
+        run: npm install -g @cloudflare/wrangler
 
       - name: Get last commit details
         run: |
@@ -51,11 +54,12 @@ jobs:
         with:
           apiToken: ${{ secrets.api_token }}
           accountId: ${{ secrets.account_id }}
-          command: pages deploy dist/apps/angular-bootstrap-playground/browser --project-name=${{ inputs.cf_pages_project }} --branch ${{ github.head_ref || github.ref_name }} --commit-message "${{ env.commit_message }}" --commit-hash "${{ env.commit_hash }}"
+          wranglerVersion: "3.86.1"
+          command: pages deploy dist/angular-bootstrap-playground --project-name=${{ inputs.cf_pages_project }} --branch ${{ github.head_ref || github.ref_name }} --commit-message "${{ env.commit_message }}" --commit-hash "${{ env.commit_hash }}"
 
       - name: Add Deployment Link
         uses: thollander/actions-comment-pull-request@e2c37e53a7d2227b61585343765f73a9ca57eda9 # v3
         with:
-          comment-tag: feature-deployment-ipp-portal
+          comment-tag: feature-deployment-isl-ui
           message: |
-            :rocket: **IPP Portal** Deployment succeeded, accessible via [${{ steps.deploy.outputs.deployment-url }}](${{ steps.deploy.outputs.deployment-url }})
+            :rocket: **ISL UI** Deployment succeeded, accessible via [${{ steps.deploy.outputs.deployment-url }}](${{ steps.deploy.outputs.deployment-url }})
