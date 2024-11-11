@@ -49,4 +49,4 @@ jobs:
           apiToken: ${{ secrets.api_token }}
           accountId: ${{ secrets.account_id }}
           wranglerVersion: "3.86.1"
-          command: pages deploy dist/apps/angular-bootstrap-playground/browser --project-name=${{ inputs.cf_pages_project }}"
+          command: pages deploy dist/angular-bootstrap-playground --project-name=${{ inputs.cf_pages_project }}"
